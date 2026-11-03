@@ -19,7 +19,7 @@ EXCEL_FILE = r""
 OUTPUT_FILE = r""
 MAX_WORKERS = 8  # number of records to fetch at once
 
-# config
+# config file with key and secret key
 token = WorldcatAccessToken(
     key="",
     secret="",
