@@ -19,7 +19,7 @@ from pathlib import Path
 # ---- SETTINGS - edit these before running  -------- # 
 
 # excel location input and output
-BASE_DIR = Path(r"c:/folder/")
+BASE_DIR = Path(r"c:\folder")
 
 #file name of the OCLC numbers and genres (optional)
 EXCEL_FILE = BASE_DIR / "oclc_numbers.xlsx"
