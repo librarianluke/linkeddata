@@ -83,7 +83,7 @@ def process(record):
                 ld_tags.append(tag)
                 break
 
-    #summary of finding LD, 6xx counts and  low 650 flags
+    # summary of finding LD, 6xx counts and  low 650 flags
     ld_text = f"LD was found in {','.join(ld_tags)}" if ld_tags else "No LD found"
     total_6xx = sum(subject_counts.values())
     breakdown = ", ".join(f"{t}: {n}" for t, n in sorted(subject_counts.items()))
@@ -93,7 +93,7 @@ def process(record):
 
     print(f"{oclc} [{genre}]: {ld_text} | 6XX fields: {total_6xx}{breakdown_text} ({elapsed:.2f}s){flag}")
 
-    #store results for excel to parse
+    # store results for excel to parse
     return {
         "oclc": oclc,
         "genre": genre,
@@ -123,37 +123,37 @@ wb.close()
 # summary of what was found
 print(f"Found {len(records)} OCLC numbers, fetching {MAX_WORKERS} at a time\n")
 
-#process records and report total time
+# process records and report total time
 total_start = time.perf_counter()
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     results = list(executor.map(process, records))
 total = time.perf_counter() - total_start
 
-#close session
+# close session
 for s in all_sessions:
     s.close()
 
 print(f"\nDone. Total time: {total:.2f}s")
 
-# ---- Write results to Excel ----
+# Write results to Excel
 all_tags = sorted({t for r in results for t in r.get("subject_counts", {})})
 
-#setup workbook, and its headers
+# Setup workbook, and its headers
 out_wb = Workbook()
 out_ws = out_wb.active
 out_ws.title = "Results"
 
-#create header as bold
+# Create header as bold
 headers = ["OCLC Number", "Genre", "LD Found", "LD Tags", "Total 6XX"] + all_tags + \
           ["Low 650 Flag", "Time (s)", "Error"]
 out_ws.append(headers)
 for cell in out_ws[1]:
     cell.font = Font(bold=True)
 
-#make flagged records red f
+# Make flagged records red f
 flag_fill = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
 
-#write the output row by row
+# Write the output row by row
 for r in results:
     if r["error"]:
         row = [r["oclc"], r["genre"], "", "", ""] + [""] * len(all_tags) + \
@@ -179,16 +179,16 @@ for r in results:
         for cell in out_ws[out_ws.max_row]:
             cell.fill = flag_fill
 
-#freee row one
+# Freeze row one
 out_ws.freeze_panes = "A2"
 
-#set max width of colums
+# Set max width of columns
 for col in out_ws.columns:
     width = max(len(str(c.value)) if c.value is not None else 0 for c in col)
     out_ws.column_dimensions[col[0].column_letter].width = min(width + 2, 80)
 
-#write the file to disk
+# Write the file to disk
 out_wb.save(OUTPUT_FILE)
 
-#and that's a wrap
+# Displaylocation of output file
 print(f"Results saved to {OUTPUT_FILE}")
