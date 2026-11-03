@@ -8,7 +8,7 @@ openpyxl</br>
 
 
 <strong>Licence</strong><br>
-Released under the MIT License. See LICENSE.</br><br>
+Released under the MIT License. See LICENSE.</br>
 
 <strong>Acknowledgements</strong></br>
 bookops-worldcat for WorldCat Metadata API access</br>
