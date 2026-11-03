@@ -36,7 +36,7 @@ token = WorldcatAccessToken(
 )
 
 
-# ---- End of settings SETTINGS  -------- # 
+# ---- End of SETTINGS  -------- # 
 
 ns = {"m": "http://www.loc.gov/MARC21/slim"}
 
