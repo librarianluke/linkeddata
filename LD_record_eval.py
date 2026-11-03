@@ -28,13 +28,15 @@ EXCEL_FILE = BASE_DIR / "collection.xlsx"
 OUTPUT_FILE = BASE_DIR / f"oclc_results_{datetime.now():%Y-%m-%d_%H-%M-%S}.xlsx"
 MAX_WORKERS = 8  # number of records to fetch at once
 
-# config file with key and secret key
+# OCLC keys
 token = WorldcatAccessToken(
     key="",
     secret="",
     scopes="WorldCatMetadataAPI",
 )
 
+
+# ---- End of settings SETTINGS  -------- # 
 
 ns = {"m": "http://www.loc.gov/MARC21/slim"}
 
