@@ -14,7 +14,7 @@ from openpyxl.styles import Font, PatternFill
 from bookops_worldcat import WorldcatAccessToken, MetadataSession
 
 # excel location input and output
-BASE_DIR = Path(r"c:/")
+BASE_DIR = Path(r"c:/folder/")
 EXCEL_FILE = BASE_DIR / "oclc_numbers.xlsx"
 OUTPUT_FILE = BASE_DIR / f"oclc_results_{datetime.now():%Y-%m-%d_%H-%M-%S}.xlsx"
 MAX_WORKERS = 8  # number of records to fetch at once
