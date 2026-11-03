@@ -18,11 +18,11 @@ from pathlib import Path
 
 # ---- SETTINGS - edit these before running  -------- # 
 
-# excel location input and output
+# excel location input and output | change to your needs
 BASE_DIR = Path(r"c:\folder")
 
-#file name of the OCLC numbers and genres (optional)
-EXCEL_FILE = BASE_DIR / "oclc_numbers.xlsx"
+#file name of the OCLC numbers and genres (optional) | sample included in repo
+EXCEL_FILE = BASE_DIR / "collection.xlsx"
 
 #output with date/time in filename to stop saving over older files
 OUTPUT_FILE = BASE_DIR / f"oclc_results_{datetime.now():%Y-%m-%d_%H-%M-%S}.xlsx"
