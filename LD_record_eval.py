@@ -12,10 +12,19 @@ from concurrent.futures import ThreadPoolExecutor
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill
 from bookops_worldcat import WorldcatAccessToken, MetadataSession
+from datetime import datetime
+from pathlib import Path
+
+
+# ---- SETTINGS - edit these before running  -------- # 
 
 # excel location input and output
 BASE_DIR = Path(r"c:/folder/")
+
+#file name of the OCLC numbers and genres (optional)
 EXCEL_FILE = BASE_DIR / "oclc_numbers.xlsx"
+
+#output with date/time in filename to stop saving over older files
 OUTPUT_FILE = BASE_DIR / f"oclc_results_{datetime.now():%Y-%m-%d_%H-%M-%S}.xlsx"
 MAX_WORKERS = 8  # number of records to fetch at once
 
