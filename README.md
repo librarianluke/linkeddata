@@ -6,10 +6,9 @@ Python 3.9 or later</br>
 bookops-worldcat</br>
 openpyxl</br>
 
-</br></br>
-Licence
 
-<strong>Released under the MIT License. See LICENSE.</strong></br>
+<strong>Licence</strong><br>
+Released under the MIT License. See LICENSE.</br><br>
 
 <strong>Acknowledgements</strong></br>
 bookops-worldcat for WorldCat Metadata API access</br>
