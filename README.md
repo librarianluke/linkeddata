@@ -1,5 +1,5 @@
 <strong>LD_record_eval</strong></br>
-Fetches WorldCat records for OCLC numbers from a spreadsheet, checks for linked data, counts subject fields and saves results to Excel for further analysis and action.</br></br>
+Fetches WorldCat records for OCLC numbers from a spreadsheet, checks for linked data, counts subject fields and saves results to Excel for further analysis and action.</br>
 
 <strong>Requirements</strong></br>
 Python 3.9 or later</br>
