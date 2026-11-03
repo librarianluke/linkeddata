@@ -1,7 +1,6 @@
 # LD_record_eval
 # Author Luke Low
-# Version: 2.1
-# Fixes: Excel file width and type
+# Version: 2.2
 # Description : Fetches WorldCat records for OCLC numbers from a spreadsheet, identifies records with no linked data, counts subject fields and  saves results to Excel.
 # Dependencies: bookops-worldcat (MIT), openpyxl (MIT)
 
@@ -15,8 +14,9 @@ from openpyxl.styles import Font, PatternFill
 from bookops_worldcat import WorldcatAccessToken, MetadataSession
 
 # excel location input and output
-EXCEL_FILE = r""
-OUTPUT_FILE = r""
+BASE_DIR = Path(r"c:/")
+EXCEL_FILE = BASE_DIR / "oclc_numbers.xlsx"
+OUTPUT_FILE = BASE_DIR / f"oclc_results_{datetime.now():%Y-%m-%d_%H-%M-%S}.xlsx"
 MAX_WORKERS = 8  # number of records to fetch at once
 
 # config file with key and secret key
